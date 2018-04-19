@@ -16,7 +16,8 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     location: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      default: 0
     }
   });
 }
