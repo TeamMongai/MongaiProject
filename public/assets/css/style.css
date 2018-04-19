@@ -1,2 +1,16 @@
 
 /* css for main.handlebars */
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+
+
+#topScreen {
+    margin-top: 200px;
+}
+
+.internal-link {
+    color: white;
+    font-size: 40px;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+    transition: 1s cubic-bezier(0, 0, 0, 1.01) all;
+}
