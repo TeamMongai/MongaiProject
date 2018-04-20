@@ -14,15 +14,20 @@ module.exports = function (sequelize, DataTypes) {
                 msg: "Must be an email address such as user@host.com",
             }
         },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        userChapterLocation: { // This is the users location in the story based on chapter number, the default is 1 to start the game
+            type: INTEGER,
+            allowNull: false,
+            defaultValue: 1,
+        },
         userFirstName: {
             type: DataTypes.STRING,
         },
         userLastName: {
             type: DataTypes.STRING,
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false
         },
         numGamesCompleted: {
             type: INTEGER,
@@ -31,7 +36,7 @@ module.exports = function (sequelize, DataTypes) {
             type: INTEGER,
         },
         numDeaths: {
-            type: INTEGER, 
+            type: INTEGER,
         },
         numEmailsSent: {
             type: INTEGER,
