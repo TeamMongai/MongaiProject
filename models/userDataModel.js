@@ -14,6 +14,12 @@ module.exports = function (sequelize, DataTypes) {
                 msg: "Must be an email address such as user@host.com",
             }
         },
+        userFirstName: {
+            type: DataTypes.STRING,
+        },
+        userLastName: {
+            type: DataTypes.STRING,
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false
