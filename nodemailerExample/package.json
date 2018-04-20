@@ -1,0 +1,22 @@
+{
+  "name": "nodemailer-testing",
+  "version": "1.0.0",
+  "description": "Testing with Nodemailer for another project.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmankey/Nodemailer-Testing.git"
+  },
+  "author": "Mark Mankey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmankey/Nodemailer-Testing/issues"
+  },
+  "homepage": "https://github.com/mmankey/Nodemailer-Testing#readme",
+  "dependencies": {
+    "nodemailer": "^4.6.4"
+  }
+}
