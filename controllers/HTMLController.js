@@ -104,6 +104,16 @@ router.get("/pathE", function (req, res) {
     res.render("pathE", hbsObject);
 });
 
+// RENDER PATH E2
+router.get("/pathE2", function (req, res) {
+    console.log("THIS IS WORKING")
+    // res.type('text/plain')
+    var hbsObject = {
+    };
+    res.render("pathE2", hbsObject);
+});
+
+
 // RENDER PATH F
 router.get("/pathF", function (req, res) {
     console.log("THIS IS WORKING")
