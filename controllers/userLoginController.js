@@ -6,6 +6,22 @@ var router = express.Router();
 
 var model = require("../models/") // I think with sequalize we need to just require models...
 
+//May need to move this inside the router statements due to email scope issues
+function checkUserChapterValue(email) {
+    connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
+        console.log("userLoginController: checkUserChapterValue: checking userChapterLocation");
+        var chapter = results[0].userChapterLocation;
+        console.log("userLoginController: checkUserChapterValue: User chapter value is ", chapter);
+        if (results[0].userChapterLocation) {
+            //route to chapter 
+        } else {
+            console.log("userLoginController: checkUserChapterValue: Unable to find chapter value!");
+        };
+    });
+};
+
+// Routes and controller functions:
+
 router.post("/login", function (req, res) {
     var email = req.body.email; //User input email
     var password = req.body.password; //User input password
@@ -24,10 +40,12 @@ router.post("/login", function (req, res) {
                     res.send({
                         "code": 200,
                         "success": "userLoginController: login sucessfull"
-                        //////////
-                        // Check user chapter value in DB and direct user to that chapter
-                        ///////////
+
                     });
+                    //////////
+                    // Check user chapter value in DB and direct user to that chapter
+                    ///////////
+                    checkUserChapterValue(email); // Function below checks the user chapter value, may need to move this inside the router statments due to scope
                 }
                 else {
                     res.send({
@@ -68,17 +86,13 @@ router.post('/register', function (req, res) {
             res.send({
                 "code": 200,
                 "success": "user registered sucessfully"
-                //////////
-                // Check user chapter value in DB and direct user to that chapter
-                ///////////
             });
+            //////////
+            // Check user chapter value in DB and direct user to that chapter
+            ///////////
+            checkUserChapterValue(email); // Function below checks the user chapter value, may need to move this inside the router statments due to scope
         }
     });
 });
 
-function checkUserChapterValue(){
-    connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
-        // if results[0].
-    });
-}
 
