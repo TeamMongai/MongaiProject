@@ -22,7 +22,7 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 //var routes = require(controllers);
-var routes = require("./controllers/controller.js");
+var routes = require("./controllers/HTMLcontroller.js");
 
 app.use(routes);
 
