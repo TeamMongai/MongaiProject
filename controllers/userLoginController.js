@@ -76,3 +76,9 @@ router.post('/register', function (req, res) {
     });
 });
 
+function checkUserChapterValue(){
+    connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
+        // if results[0].
+    });
+}
+
