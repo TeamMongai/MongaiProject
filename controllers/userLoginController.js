@@ -4,9 +4,9 @@ var express = require("express");
 
 var router = express.Router();
 
-var model = require("../models/") // I think with sequalize we need to just require models...
+var db = require("../models/") // I think with sequalize we need to just require models...
 
-//May need to move this inside the router statements due to email scope issues
+//May need to move checkUserChapterValue() inside the router statements due to email scope issues
 function checkUserChapterValue(email) {
     connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
         console.log("userLoginController: checkUserChapterValue: checking userChapterLocation");
@@ -22,10 +22,19 @@ function checkUserChapterValue(email) {
 
 // Routes and controller functions:
 
-router.post("/login", function (req, res) {
+
+
+// LOGIN - NOT YET CONVERTED TO SEQUALIZE - Converting
+router.get("/login", function (req, res) {
     var email = req.body.email; //User input email
     var password = req.body.password; //User input password
-    console.log("userLoginController: Checking login: ", email, password)
+    console.log("userLoginController: Checking user login: ", email, password)
+
+
+
+
+
+
     connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
         console.log("userLoginController: Password from DB ", results[0].password);
         if (error) {
@@ -64,35 +73,32 @@ router.post("/login", function (req, res) {
     });
 });
 
+
+// REGISTER - Need to test
 router.post('/register', function (req, res) {
-    var today = new Date();
-    var users = {
-        "first_name": req.body.first_name,
-        "last_name": req.body.last_name,
-        "email": req.body.email,
-        "password": req.body.password,
-        "created": today,
-        "modified": today
-    }
-    connection.query('INSERT INTO users SET ?', users, function (error, results, fields) {
-        if (error) {
-            console.log("error ocurred", error);
-            res.send({
-                "code": 400,
-                "failed": "error ocurred"
-            })
-        } else {
-            console.log('The solution is: ', results);
-            res.send({
-                "code": 200,
-                "success": "user registered sucessfully"
-            });
-            //////////
-            // Check user chapter value in DB and direct user to that chapter
-            ///////////
-            checkUserChapterValue(email); // Function below checks the user chapter value, may need to move this inside the router statments due to scope
-        }
+    db.userDataModel.create({
+        email: req.body.email,
+        password: req.body.password,
+        userFirstName: req.body.first_name,
+        userLastName: req.body.last_name,
     });
+    if (error) {
+        console.log("error ocurred", error);
+        res.send({
+            "code": 400,
+            "failed": "error ocurred"
+        })
+    } else {
+        console.log('The solution is: ', results);
+        res.send({
+            "code": 200,
+            "success": "user registered sucessfully"
+        });
+        //////////
+        // Check user chapter value in DB and direct user to that chapter
+        ///////////
+        checkUserChapterValue(email); // Function below checks the user chapter value, may need to move this inside the router statments due to scope
+    }
 });
 
 
