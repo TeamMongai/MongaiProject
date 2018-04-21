@@ -25,7 +25,7 @@ function checkUserChapterValue(email) {
 
 
 // LOGIN - CONVERTED TO SEQUALIZE - Need to test
-router.get("/login", function (req, res) {
+router.post("/login", function (req, res) {
     var email = req.body.email; //User input email
     var password = req.body.password; //User input password
     console.log("userLoginController: Checking user login: ", email, password)
