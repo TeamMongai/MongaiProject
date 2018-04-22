@@ -1,8 +1,8 @@
 module.exports = function (sequelize, DataTypes) {
     // There is a lot of data in userData, not all of it has to be used
-    var userData = sequelize.define("User", {
+    var userData = sequelize.define("Otheruser", {
         userID: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
         },
@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         userChapterLocation: { // This is the users location in the story based on chapter number, the default is 1 to start the game
-            type: INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 1,
         },
@@ -30,22 +30,22 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
         },
         numGamesCompleted: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         numLogins: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         numDeaths: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         numEmailsSent: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         numChoicesMade: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
-        createdAt: Sequelize.DATE,
-        updatedAt: Sequelize.DATE,
+        // createdAt: DataTypes.Sequelize.DATE,
+        // updatedAt: DataTypes.Sequelize.DATE,
     });
     return userData;
 };
