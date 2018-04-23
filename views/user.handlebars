@@ -1,17 +1,102 @@
-<div class="row center" id="topScreen">
-    <h4 class="center">User Name Input Screen</h4>
-    <a class="waves-effect waves-light btn-large internal-link">Start</a>
-    <form>
-        First name:
-        <input type="text" name="FirstName" value="Mickey">
-        <br> Last name:
-        <input type="text" name="LastName" value="Mouse">
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-    <a href="/EXPO1">
-        <button class="btn btn-success btn-lg">
-            <span class="glyphicon glyphicon-list-alt"></span>START</button>
-    </a>
+<html>
 
-</div>
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <style rel="stylesheet" type="text/css">
+
+    
+    body, html {
+    height: 100%;
+}
+
+     
+        body {
+            background: #fff;
+            background-image:url('/assets/images/game.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        }
+   
+        .input-field input[type=text]:focus+label,
+        .input-field input[type=email]:focus+label,
+        .input-field input[type=password]:focus+label,
+         .input-field input[type=password]:focus+label {
+            color: #e91e63;
+        }
+
+        
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section"></div>
+    <main>
+        <center>
+         <div class="container">
+                <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 30px 100px 30px 100px; border: 1px solid #EEE;">
+                        <section>User Register Form</section>
+                    <form class="col s12" method="post">
+                        <div class='row'>
+                            <div class='col s12'>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type='text' name='username' id='username' />
+                                <label for='username'>User Name</label>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type='email' name='email' id='email' />
+                                <label for='email'>Enter your email</label>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type='password' name='password' id='password' />
+                                <label for='password'>Enter your Password</label>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type='password' name='confirmpassword' id='confirmpassword' />
+                                <label for='password'>Confirm your password</label>
+                            </div>
+                           </div>
+                         <br />
+                        <center>
+                            <div class='row'>
+                                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Submit</button>
+                            </div>
+                        </center>
+                    </form>
+                </div>
+            </div>
+           
+        </center>
+             </main>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+
+</html>

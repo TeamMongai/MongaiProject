@@ -14,7 +14,7 @@ router.get("/", function (req, res) {
         choices: JSON.stringify(game[0].choice_array)
     } 
     console.log(hbsObject);
-    res.render("index", hbsObject);
+    res.render("homescreen", hbsObject);
 });
 
 // RENDER USER INPUT FORM
