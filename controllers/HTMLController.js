@@ -17,7 +17,7 @@ router.get("/runGame/:id", function (req, res) {
     } 
 
     console.log(hbsObject);
-    res.render("runGame", hbsObject);
+    res.render("index", hbsObject);
 });
 
 // RENDER USER INPUT FORM
