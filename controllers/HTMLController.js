@@ -15,7 +15,9 @@ router.get("/:id", function (req, res) {
         choice2: game[req.params.id].choice_array[1],
         choice3: game[req.params.id].choice_array[2]
     } 
-    res.render("index", hbsObject);
+
+    console.log(hbsObject);
+    res.render("homescreen", hbsObject);
 });
 
 // RENDER USER INPUT FORM
