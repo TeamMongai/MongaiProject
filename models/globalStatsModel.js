@@ -2,40 +2,40 @@ module.exports = function (sequelize, DataTypes) {
     // There is a lot of data in globalStatsModel, not all of it has to be used
     var globalStatsModel = sequelize.define("globalstat", {
         globalID: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
         },
         globalLogins: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         globalFailedLogins: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         globalUsersRegistered: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         globalGamesStarted: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         globalGamesCompleted: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         globalGoodOutcomes: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         globalBadOutcomes: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
         },
         globalChoicesMade: {
-
+            type: DataTypes.INTEGER,
         },
         globalThermonuclearWar: {
-            type: boolean,
+            type: DataTypes.boolean,
             defaultValue: true
         },
-        createdAt: Sequelize.DATE,
-        updatedAt: Sequelize.DATE,
+        createdAt: DataTypes.Sequelize.DATE,
+        updatedAt: DataTypes.Sequelize.DATE,
     });
     return globalStatsModel;
 };
