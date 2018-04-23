@@ -7,12 +7,15 @@ var model = require("../models/model.js")
 var game = require("../controllers/michaelsGame2.js")
 
 // RENDER START SCREEN
-router.get("/", function (req, res) {
+router.get("/:id", function (req, res) {
     var hbsObject = {
-        game: game[0],
-        text: game[0].text,
-        choices: JSON.stringify(game[0].choice_array)
+        game: game[req.params.id],
+        text: game[req.params.id].text,
+        choice1: game[req.params.id].choice_array[0],
+        choice2: game[req.params.id].choice_array[1],
+        choice3: game[req.params.id].choice_array[2]
     } 
+
     console.log(hbsObject);
     res.render("homescreen", hbsObject);
 });
