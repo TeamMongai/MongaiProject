@@ -17,12 +17,7 @@ router.get("/runGame/:id", function (req, res) {
 
         
     } 
-<<<<<<< HEAD
     // console.log(typeof(text))
-=======
-
-    console.log(hbsObject);
->>>>>>> b32683ba29a236831e7b813d6ceb62cab061e444
     res.render("index", hbsObject);
 });
 
