@@ -48,41 +48,15 @@ router.post("/api/login", function (req, res) {
                 "success": "userLoginController: login sucessfull"
 
             });
+        } else {
+            console.log("login failed");
+            res.send({
+                "code": 204,
+                "success": "userLoginController: Email and password does not match"
+            });
 
-
-        // if (err) {
-        //     res.send({
-        //         "code": 400,
-        //         "failed": "error ocurred"
-        //     })
-        // } else {
-        //     if (results.length > 0) {
-        //         if (results.password == password) {
-        //             console.log("userLoginController: login sucessfull")
-        //             res.send({
-        //                 "code": 200,
-        //                 "success": "userLoginController: login sucessfull"
-
-        //             });
-        //             //////////
-        //             // Check user chapter value in DB and direct user to that chapter
-        //             ///////////
-        //             // checkUserChapterValue(email); // Function below checks the user chapter value, may need to move this inside the router statments due to scope
-        //         }
-        //         else {
-        //             res.send({
-        //                 "code": 204,
-        //                 "success": "userLoginController: Email and password does not match"
-        //             });
-        //         }
-        //     }
-        //     else {
-        //         res.send({
-        //             "code": 204,
-        //             "success": "userLoginController: Email does not exits"
-        //         });
-        //     }
         }
+        ///res.redirect
     });
 });
 
@@ -94,24 +68,30 @@ router.post('/api/register', function (req, res) {
         password: req.body.password,
         userFirstName: req.body.first_name,
         userLastName: req.body.last_name,
-    });
-    if (error) {
-        console.log("error ocurred", error);
-        res.send({
-            "code": 400,
-            "failed": "error ocurred"
-        })
-    } else {
-        console.log('The solution is: ', results);
-        res.send({
-            "code": 200,
-            "success": "user registered sucessfully"
-        });
-        //////////
-        // Check user chapter value in DB and direct user to that chapter
-        ///////////
-        // checkUserChapterValue(email); // checkUserChapterValue() checks the user chapter value, may need to move this inside the router statments due to scope
-    }
+    })
+    // .then(function(results) {
+    //     res.json(results);
+
+    //     //send to login page
+
+    //   });;
+    // if (error) {
+    //     console.log("error ocurred", error);
+    //     res.send({
+    //         "code": 400,
+    //         "failed": "error ocurred"
+    //     })
+    // } else {
+    //     console.log('The solution is: ', results);
+    //     res.send({
+    //         "code": 200,
+    //         "success": "user registered sucessfully"
+    //     });
+    //     //////////
+    //     // Check user chapter value in DB and direct user to that chapter
+    //     ///////////
+    //     // checkUserChapterValue(email); // checkUserChapterValue() checks the user chapter value, may need to move this inside the router statments due to scope
+    // }
 });
 
 
