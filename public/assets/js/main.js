@@ -20,3 +20,5 @@ $("#choice3").on("click",function(){
     id = parseInt($(this).val("link"))
     chapter(id)
 })
+
+module.exports = mainGame; 
