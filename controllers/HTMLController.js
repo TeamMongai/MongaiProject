@@ -4,7 +4,7 @@ var router = express.Router();
 
 var model = require("../models/model.js")
 
-var game = require("../controllers/michaelsGame2.js")
+var game = require("../controllers/brittanysGame.js")
 
 // RENDER START SCREEN
 router.get("/:id", function (req, res) {
@@ -14,7 +14,10 @@ router.get("/:id", function (req, res) {
         choice1: game[req.params.id].choice_array[0],
         choice2: game[req.params.id].choice_array[1],
         choice3: game[req.params.id].choice_array[2]
+
+        
     } 
+    // console.log(typeof(text))
     res.render("index", hbsObject);
 });
 
