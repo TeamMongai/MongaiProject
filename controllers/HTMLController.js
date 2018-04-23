@@ -7,7 +7,7 @@ var model = require("../models/model.js")
 var game = require("../controllers/michaelsGame2.js")
 
 // RENDER START SCREEN
-router.get("/:id", function (req, res) {
+router.get("/runGame/:id", function (req, res) {
     var hbsObject = {
         game: game[req.params.id],
         text: game[req.params.id].text,
@@ -17,7 +17,7 @@ router.get("/:id", function (req, res) {
     } 
 
     console.log(hbsObject);
-    res.render("homescreen", hbsObject);
+    res.render("runGame", hbsObject);
 });
 
 // RENDER USER INPUT FORM
@@ -29,13 +29,22 @@ router.get("/user", function (req, res) {
     res.render("user", hbsObject);
 });
 
-// RENDER THE FIRST EXPO PAGE
-router.get("/EXPO1", function (req, res) {
+// RENDER LOGIN FORM
+router.get("/loginPage", function (req, res) {
     console.log("THIS IS WORKING")
     // res.type('text/plain')
     var hbsObject = {
     };
-    res.render("EXPO1", hbsObject);
+    res.render("loginPage", hbsObject);
+});
+
+// RENDER THE FIRST EXPO PAGE
+router.get("/", function (req, res) {
+    console.log("THIS IS WORKING")
+    // res.type('text/plain')
+    var hbsObject = {
+    };
+    res.render("homescreen", hbsObject);
 });
 
 // RENDER THE FIRST CHOICE PAGE
