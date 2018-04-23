@@ -30,12 +30,12 @@ module.exports = function (sequelize, DataTypes) {
         globalChoicesMade: {
             type: DataTypes.INTEGER,
         },
-        globalThermonuclearWar: {
-            type: DataTypes.boolean,
-            defaultValue: true
-        },
-        createdAt: DataTypes.Sequelize.DATE,
-        updatedAt: DataTypes.Sequelize.DATE,
+        // globalThermonuclearWar: {
+        //     type: DataTypes.boolean,
+        //     defaultValue: true
+        // },
+        // createdAt: DataTypes.Sequelize.DATE,
+        // updatedAt: DataTypes.Sequelize.DATE,
     });
     return globalStatsModel;
 };
