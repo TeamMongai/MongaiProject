@@ -4,10 +4,15 @@ var router = express.Router();
 
 var model = require("../models/model.js")
 
+var game = require("../controllers/michaelsGame2.js")
+
 // RENDER START SCREEN
 router.get("/", function (req, res) {
     var hbsObject = {
-    };
+        game: game[0],
+        text: game[0].text,
+        choices: JSON.stringify(game[0].choice_array)
+    } 
     console.log(hbsObject);
     res.render("index", hbsObject);
 });
