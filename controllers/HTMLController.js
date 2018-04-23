@@ -7,7 +7,7 @@ var model = require("../models/model.js")
 var game = require("../controllers/brittanysGame.js")
 
 // RENDER START SCREEN
-router.get("/:id", function (req, res) {
+router.get("/runGame/:id", function (req, res) {
     var hbsObject = {
         game: game[req.params.id],
         text: game[req.params.id].text,
@@ -17,7 +17,12 @@ router.get("/:id", function (req, res) {
 
         
     } 
+<<<<<<< HEAD
     // console.log(typeof(text))
+=======
+
+    console.log(hbsObject);
+>>>>>>> b32683ba29a236831e7b813d6ceb62cab061e444
     res.render("index", hbsObject);
 });
 
@@ -30,13 +35,22 @@ router.get("/user", function (req, res) {
     res.render("user", hbsObject);
 });
 
-// RENDER THE FIRST EXPO PAGE
-router.get("/EXPO1", function (req, res) {
+// RENDER LOGIN FORM
+router.get("/loginPage", function (req, res) {
     console.log("THIS IS WORKING")
     // res.type('text/plain')
     var hbsObject = {
     };
-    res.render("EXPO1", hbsObject);
+    res.render("loginPage", hbsObject);
+});
+
+// RENDER THE FIRST EXPO PAGE
+router.get("/", function (req, res) {
+    console.log("THIS IS WORKING")
+    // res.type('text/plain')
+    var hbsObject = {
+    };
+    res.render("homescreen", hbsObject);
 });
 
 // RENDER THE FIRST CHOICE PAGE
