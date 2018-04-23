@@ -1,5 +1,5 @@
 //js for main.handlebars
-var game =require("./controllers/michaelsGame.js")
+// var game =require("./controllers/michaelsGame.js")
 var id = 0
 function chapter(id) {
 $("#text").html(game[id].text)
@@ -21,4 +21,4 @@ $("#choice3").on("click",function(){
     chapter(id)
 })
 
-module.exports = mainGame; 
+// module.exports = mainGame; 
