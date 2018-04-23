@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     // There is a lot of data in userData, not all of it has to be used
-    var userData = sequelize.define("Otheruser", {
+    var userData = sequelize.define("User", {
         userID: {
             type: DataTypes.INTEGER,
             allowNull: false,
