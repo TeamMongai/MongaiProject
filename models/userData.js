@@ -2,7 +2,7 @@
 
 module.exports = function (sequelize, DataTypes) {
     // There is a lot of data in userData, not all of it has to be used
-    var userData = sequelize.define("User", {
+    var User = sequelize.define("User", {
         userID: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -49,5 +49,5 @@ module.exports = function (sequelize, DataTypes) {
         // createdAt: DataTypes.Sequelize.DATE,
         // updatedAt: DataTypes.Sequelize.DATE,
     });
-    return userData;
+    return User;
 };
