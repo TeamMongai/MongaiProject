@@ -65,7 +65,7 @@ chapter.add_choice("Pretend that you were just rummaging in your bag and nothing
 chapters.push(chapter)
 //------------------
 chapter = new Chapter(10, "As you pull the club sandwich out, you realize you are starving. The troll is staring at you stare at the sandwich in your hands.")
-chapter.add_choice("Continue using the sandwich as a weapon and beat the troll about the head with it", 22)
+chapter.add_choice("Split the sandwich with the troll", 34)
 chapter.add_choice("Eat the sandwich", 24)
 chapter.add_choice("Offer the troll the sandwich", 23)
 chapters.push(chapter)
