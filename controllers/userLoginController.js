@@ -54,7 +54,7 @@ router.post('/api/register', function (req, res) {
         .then(function (results) {
             console.log("userLoginController, new user registered: ", results.dataValues.email);
             res.json(results.dataValues.email);
-            res.json(results.dataValues.password);
+            // res.json(results.dataValues.password);
             ///res.redirect to login page
             // res.redirect('/foo/bar');
             // res.redirect('http://example.com');
