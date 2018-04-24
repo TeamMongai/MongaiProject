@@ -7,25 +7,20 @@ var db = require("../models")
 var game = require("../controllers/brittanysGame.js")
 
 // RENDER START SCREEN
-router.get("/runGame/:id", function (req, res) {
+router.get("/:userID/runGame/:id", function (req, res) {
     console.log(req.params.id)
     // console.log(req.params)
-
-    db.userData.findOne({
+    console.log(req.body)
+    console.log(req.params.userID)
+    //console.log(choice1)
+    db.User.findOne({
         where: {
-            userID:
+            userID: req.params.userID //id from database
         }
-    }).then(function(dbPost){
-        app.put("/api/posts", function(req, res) {
-                res.json(dbPost);
-            }
-            db.userData.update(req.body,
-                {   
-                    {userChapterLocation: req.params.id},
-                    where: {
-                        userID: req.body.id
-                    }
-            });
+    }).then(function(user){
+            user.update(
+                {userChapterLocation: req.params.id},
+            );
     
     //interact with sequelize
     //update user object in db
@@ -33,48 +28,50 @@ router.get("/runGame/:id", function (req, res) {
         // use req.params.id
 
 
-    if (req.params.id === "5" || req.params.id === 24 || req.params.id === 25 || req.params.id === 31 || req.params.id === 34) {
-    // if id = 5, 24, 25, 31, 34
-        // then update db and let it know that one of these was chosen
+    // if (req.params.id === "5" || req.params.id === 24 || req.params.id === 25 || req.params.id === 31 || req.params.id === 34) {
+    // // if id = 5, 24, 25, 31, 34
+    //     // then update db and let it know that one of these was chosen
         
-        // need a new model for endgame chapters and associate the # of times clicked
-            // one column ids, one chap #, one is total # of times clicked
-            // based on chap #, retrieve data for that chapter #, the # of times people have already gone there
-                // ++
-                // update database
+    //     // need a new model for endgame chapters and associate the # of times clicked
+    //         // one column ids, one chap #, one is total # of times clicked
+    //         // based on chap #, retrieve data for that chapter #, the # of times people have already gone there
+    //             // ++
+    //             // update database
 
-        //finds the data
-        db.Endings.findOne({
-                where: {
-                    chapterID: req.params.id
-                }
-                })
-                .then(function(dbPost) { // promise
-                    // update / put function
-                    console.log(dbPost);
-                });
-                // db is returning null
-                // chapter does not exist
-                // prepopulate db with each ending -- sequelize create
-                    // seed db with initial default values -- only have to do it once
-                // part of game origination -- when game first starts
+    //     //finds the data
+    //     db.Endings.findOne({
+    //             where: {
+    //                 chapterID: req.params.id
+    //             }
+    //             })
+    //             .then(function(dbPost) { // promise
+    //                 // update / put function
+    //                 console.log(dbPost);
+    //             });
+    //             // db is returning null
+    //             // chapter does not exist
+    //             // prepopulate db with each ending -- sequelize create
+    //                 // seed db with initial default values -- only have to do it once
+    //             // part of game origination -- when game first starts
 
-    }
+    // }
 
     var hbsObject = {
         game: game[req.params.id],
         text: game[req.params.id].text,
+        userID: req.params.userID,
         choice1: game[req.params.id].choice_array[0],
         choice2: game[req.params.id].choice_array[1],
         choice3: game[req.params.id].choice_array[2]
-
         
 
-        
     } 
+    console.log("choice1: ", hbsObject.choice1)
+    console.log("userID: " + hbsObject.userID)
     // console.log(typeof(text))
     res.render("index", hbsObject);
 });
+})
 
 // RENDER USER INPUT FORM
 router.get("/user", function (req, res) {
