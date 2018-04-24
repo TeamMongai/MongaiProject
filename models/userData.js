@@ -3,11 +3,11 @@
 module.exports = function (sequelize, DataTypes) {
     // There is a lot of data in userData, not all of it has to be used
     var User = sequelize.define("User", {
-        userID: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-        },
+        // userID: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     primaryKey: true,
+        // },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
