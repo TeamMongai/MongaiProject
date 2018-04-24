@@ -4,7 +4,7 @@ $(document).ready(function () {
     $(document).on("click", ".submit", submitLogin);
 });
 
-function submitLogin(event){
+function submitLogin(event) {
     event.preventDefault();
     console.log("login.js, Submit Login ");
     var email = $('#email').val().trim();
@@ -18,7 +18,11 @@ function submitLogin(event){
         method: "POST",
         url: "/api/login",
         data: data
-    }).then(function (err) {
-        console.log(err)
+    }).then(function (res) {
+        console.log(res)
+        if (res.code == 200) {
+            console.log("login.js, inside .then window thing")
+            window.location.href = res.next
+        }
     })
 }
