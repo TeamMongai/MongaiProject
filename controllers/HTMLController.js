@@ -16,7 +16,7 @@ router.get("/runGame/:id", function (req, res) {
         choice3: game[req.params.id].choice_array[2]
     } 
     // console.log(typeof(text))
-    res.render("index", hbsObject);
+    res.render("redoneIndex", hbsObject);
 });
 
 // RENDER USER INPUT FORM
