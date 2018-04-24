@@ -11,20 +11,21 @@ router.get("/runGame/:id", function (req, res) {
     console.log(req.params.id)
     // console.log(req.params)
 
-    // db.userData.findOne({
-    //     where: {
-
-    //     }
-    // }).then(function(dbPost){
-    //             db.Post.update(req.body,
-    //             {
-    //               where: {
-    //                 id: req.body.id
-    //               }
-    //             })
-    //             .then(function(dbPost) {
-    //               res.json(dbPost);
-    //             });
+    db.userData.findOne({
+        where: {
+            userID:
+        }
+    }).then(function(dbPost){
+        app.put("/api/posts", function(req, res) {
+                res.json(dbPost);
+            }
+            db.userData.update(req.body,
+                {   
+                    {userChapterLocation: req.params.id},
+                    where: {
+                        userID: req.body.id
+                    }
+            });
     
     //interact with sequelize
     //update user object in db
@@ -66,16 +67,13 @@ router.get("/runGame/:id", function (req, res) {
         choice1: game[req.params.id].choice_array[0],
         choice2: game[req.params.id].choice_array[1],
         choice3: game[req.params.id].choice_array[2]
-<<<<<<< HEAD
 
         
 
         
-=======
->>>>>>> a48c39b803b993e96aa8be036b07afae8e913b67
     } 
     // console.log(typeof(text))
-    res.render("redoneIndex", hbsObject);
+    res.render("index", hbsObject);
 });
 
 // RENDER USER INPUT FORM
