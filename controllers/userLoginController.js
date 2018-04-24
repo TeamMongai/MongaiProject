@@ -27,10 +27,12 @@ router.post("/api/login", function (req, res) {
 
         if (results.password == password) {
             console.log("userLoginController: login sucessfull")
+
             res.send({
                 "code": 200,
-                "success": "userLoginController: login sucessfull"
-
+                "success": "userLoginController: login sucessfull",  
+                "next": "/" + results.userID + "/runGame" + results.userChapterLocation
+            // "/:userID/runGame/:id"
             });
         } else {
             console.log("login failed");
