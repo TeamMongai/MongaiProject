@@ -2,18 +2,72 @@ var express = require("express");
 
 var router = express.Router();
 
-var model = require("../models/model.js")
+var db = require("../models")
 
 var game = require("../controllers/brittanysGame.js")
 
 // RENDER START SCREEN
 router.get("/runGame/:id", function (req, res) {
+    console.log(req.params.id)
+    // console.log(req.params)
+
+    // db.userData.findOne({
+    //     where: {
+
+    //     }
+    // }).then(function(dbPost){
+    //             db.Post.update(req.body,
+    //             {
+    //               where: {
+    //                 id: req.body.id
+    //               }
+    //             })
+    //             .then(function(dbPost) {
+    //               res.json(dbPost);
+    //             });
+    
+    //interact with sequelize
+    //update user object in db
+        //send in what chapter they are on
+        // use req.params.id
+
+
+    if (req.params.id === "5" || req.params.id === 24 || req.params.id === 25 || req.params.id === 31 || req.params.id === 34) {
+    // if id = 5, 24, 25, 31, 34
+        // then update db and let it know that one of these was chosen
+        
+        // need a new model for endgame chapters and associate the # of times clicked
+            // one column ids, one chap #, one is total # of times clicked
+            // based on chap #, retrieve data for that chapter #, the # of times people have already gone there
+                // ++
+                // update database
+
+        //finds the data
+        db.Endings.findOne({
+                where: {
+                    chapterID: req.params.id
+                }
+                })
+                .then(function(dbPost) { // promise
+                    // update / put function
+                    console.log(dbPost);
+                });
+                // db is returning null
+                // chapter does not exist
+                // prepopulate db with each ending -- sequelize create
+                    // seed db with initial default values -- only have to do it once
+                // part of game origination -- when game first starts
+
+    }
+
     var hbsObject = {
         game: game[req.params.id],
         text: game[req.params.id].text,
         choice1: game[req.params.id].choice_array[0],
         choice2: game[req.params.id].choice_array[1],
         choice3: game[req.params.id].choice_array[2]
+
+        
 
         
     } 
