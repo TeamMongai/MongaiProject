@@ -2,7 +2,7 @@ var express = require("express");
 
 var router = express.Router();
 
-var model = require("../models/model.js")
+// var model = require("../models/model.js")
 
 var game = require("../controllers/brittanysGame.js")
 
