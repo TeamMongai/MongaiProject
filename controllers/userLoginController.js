@@ -6,7 +6,7 @@ var express = require("express");
 
 var router = express.Router();
 
-var db = require("../models") 
+var db = require("../models")
 
 // Routes and controller functions:
 console.log("exports in userLoginController!")
@@ -38,9 +38,7 @@ router.post("/api/login", function (req, res) {
                 "code": 204,
                 "success": "userLoginController: Email and password does not match"
             });
-
         }
-        ///res.redirect
     });
 });
 
@@ -53,33 +51,14 @@ router.post('/api/register', function (req, res) {
         userFirstName: req.body.first_name,
         userLastName: req.body.last_name,
     })
-    .then(function(results) {
-        console.log("userLoginController, register results, ", results);
-        res.json(results);
-
-    //     //send to login page
-
-      });;
-    // if (error) {
-    //     console.log("error ocurred", error);
-    //     res.send({
-    //         "code": 400,
-    //         "failed": "error ocurred"
-    //     })
-    // } else {
-    //     console.log('The solution is: ', results);
-    //     res.send({
-    //         "code": 200,
-    //         "success": "user registered sucessfully"
-    //     });
-    //     //////////
-    //     // Check user chapter value in DB and direct user to that chapter
-    //     ///////////
-    //     // checkUserChapterValue(email); // checkUserChapterValue() checks the user chapter value, may need to move this inside the router statments due to scope
-    // }
+        .then(function (results) {
+            console.log("userLoginController, new user registered: ", results.dataValues.email);
+            res.json(results.dataValues.email);
+            res.json(results.dataValues.password);
+            ///res.redirect to login page
+            // res.redirect('/foo/bar');
+            // res.redirect('http://example.com');
+        });;
 });
-
-
-
 
 module.exports = router;
