@@ -6,23 +6,7 @@ var express = require("express");
 
 var router = express.Router();
 
-var db = require("../models") // I think with sequalize we need to just require models...
-
-//May need to move checkUserChapterValue() inside the router statements due to email scope issues - need to test
-// function checkUserChapterValue(email) {
-//     connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
-//         console.log("userLoginController: checkUserChapterValue: checking userChapterLocation");
-//         var chapter = results[0].userChapterLocation;
-//         console.log("userLoginController: checkUserChapterValue: User chapter value is ", chapter);
-//         if (results[0].userChapterLocation) {
-//             //route to chapter 
-//         } else {
-//             console.log("userLoginController: checkUserChapterValue: Unable to find chapter value!");
-//         };
-//     });
-// };
-
-
+var db = require("../models") 
 
 // Routes and controller functions:
 console.log("exports in userLoginController!")
@@ -69,12 +53,13 @@ router.post('/api/register', function (req, res) {
         userFirstName: req.body.first_name,
         userLastName: req.body.last_name,
     })
-    // .then(function(results) {
-    //     res.json(results);
+    .then(function(results) {
+        console.log("userLoginController, register results, ", results);
+        res.json(results);
 
     //     //send to login page
 
-    //   });;
+      });;
     // if (error) {
     //     console.log("error ocurred", error);
     //     res.send({
