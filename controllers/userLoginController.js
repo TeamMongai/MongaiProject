@@ -31,7 +31,7 @@ router.post("/api/login", function (req, res) {
             res.send({
                 "code": 200,
                 "success": "userLoginController: login sucessfull",  
-                "next": "/" + results.userID + "/runGame" + results.userChapterLocation
+                "next": "/" + results.id + "/runGame/" + results.userChapterLocation
             // "/:userID/runGame/:id"
             });
         } else {

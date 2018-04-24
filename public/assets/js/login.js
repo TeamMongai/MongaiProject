@@ -22,7 +22,8 @@ function submitLogin(event) {
         console.log(res)
         if (res.code == 200) {
             console.log("login.js, inside .then window thing")
-            window.location.href = res.next
+            console.log(res.next);
+            window.location.href = res.next;
         }
     })
 }

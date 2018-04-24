@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
         userChapterLocation: { // This is the users location in the story based on chapter number, the default is 1 to start the game
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: 1,
+            defaultValue: 0,
         },
         userFirstName: {
             type: DataTypes.STRING,

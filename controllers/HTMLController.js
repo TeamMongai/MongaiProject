@@ -11,11 +11,11 @@ router.get("/:userID/runGame/:id", function (req, res) {
     console.log(req.params.id)
     // console.log(req.params)
     console.log(req.body)
-    console.log(req.params.userID)
+    console.log("HEY LOOK HERE", req.params.userID)
     //console.log(choice1)
     db.User.findOne({
         where: {
-            userID: req.params.userID //id from database
+            id: req.params.userID //id from database
         }
     }).then(function(user){
             user.update(
@@ -69,7 +69,7 @@ router.get("/:userID/runGame/:id", function (req, res) {
     console.log("choice1: ", hbsObject.choice1)
     console.log("userID: " + hbsObject.userID)
     // console.log(typeof(text))
-    res.render("index", hbsObject);
+    res.render("redoneIndex", hbsObject);
 });
 })
 
