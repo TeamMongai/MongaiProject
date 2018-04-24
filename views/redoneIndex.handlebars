@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <style rel="stylesheet" type="text/css">
+
+    
+    body, html {
+    height: 100%;
+}
+
+     
+        body {
+            background: #fff;
+            background-image:url('/assets/images/game.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        }
+   
+        {{!-- .input-field input[type=text]:focus+label, --}}
+        .input-field input[type=email]:focus+label,
+        .input-field input[type=password]:focus+label,
+         .input-field input[type=password]:focus+label {
+            color: #e91e63;
+        }
+
+        
+        {{!-- .input-field input[type=text]:focus, --}}
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section"></div>
+    <main>
+        <center>
+         <div class="container">
+                <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 30px 100px 30px 100px; border: 1px solid #EEE;">
+    <ul>
+        <p>{{{text}}}</p>
+        <br>
+        <br>
+        <a class="choice" href="/runGame/{{choice1.value}}">{{choice1.name}}</a>
+        <br>
+        <a class="choice" href="/runGame/{{choice2.value}}">{{choice2.name}}</a>
+        <br>
+        <a class="choice" href="/runGame/{{choice3.value}}">{{choice3.name}}</a>
+    </ul>
+                </div>
+            </div>
+           
+        </center>
+             </main>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+
+</html>
