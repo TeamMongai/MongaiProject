@@ -1,4 +1,4 @@
-console.log("register.js: register.js loaded on client!")
+console.log("register.js, register.js loaded on client!")
 
 $(document).ready(function () {
     $(document).on("click", ".submit", submitRegister);
@@ -9,7 +9,7 @@ function submitRegister(event) {
     console.log("register.js: Submit Registration ");
     var email = $('#email').val().trim();
     var password = $('#password').val().trim();
-    console.log("email", email, password);
+    console.log("register.js, input email and password", email, password);
     var data = {
         email: email,
         password: password
@@ -18,8 +18,9 @@ function submitRegister(event) {
         method: "POST",
         url: "/api/register",
         data: data
-    }).then(function (err) {
-        console.log(err)
+    }).then(function () {
+        console.log("register.js, inside .then");
+        window.location.href = "/loginPage";
     })
 
 };
