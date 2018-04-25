@@ -19,8 +19,13 @@ function submitRegister(event) {
         url: "/api/register",
         data: data
     }).then(function () {
+        if (response.statusCode === 418) {
+            console.log("Hey that's not an email")
+        } else {
+            window.location.href = "/loginPage";
+        }
         console.log("register.js, inside .then");
-        window.location.href = "/loginPage";
+        
     })
 
 };

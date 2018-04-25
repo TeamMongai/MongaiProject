@@ -30,9 +30,9 @@ router.post("/api/login", function (req, res) {
 
             res.send({
                 "code": 200,
-                "success": "userLoginController: login sucessfull",  
+                "success": "userLoginController: login sucessfull",
                 "next": "/" + results.id + "/runGame/" + results.userChapterLocation
-            // "/:userID/runGame/:id"
+                // "/:userID/runGame/:id"
             });
         } else {
             console.log("login failed");
@@ -50,13 +50,20 @@ router.post('/api/register', function (req, res) {
     db.User.create({
         email: req.body.email,
         password: req.body.password,
-        userFirstName: req.body.first_name,
-        userLastName: req.body.last_name,
+        // userFirstName: req.body.first_name,
+        // userLastName: req.body.last_name,
     })
-        .then(function (results) {
-            console.log("userLoginController, new user registered: ", results.dataValues.email);
+
+        .catch(function (err) {
+            console.log(err);
+            res.sendStatus(418);
+            throw new Error("Something went badly wrong!");
+        })
+        .then(function (results) { // this still triggers after .catch...
+            // console.log("userLoginController, new user registered: ", results.dataValues.email);
             res.sendStatus(200)
-        });;
+        });
+
 });
 
 module.exports = router;
