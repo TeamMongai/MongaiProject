@@ -20,7 +20,19 @@ function submitRegister(event) {
         data: data
     }).then(function () {
         console.log("register.js, inside .then");
-        window.location.href = "/loginPage";
+        if( !validateEmail(email)) { 
+            console.log("register.js, Oh noes not an email!")
+            
+        } else {
+            window.location.href = "/loginPage";
+        }
+
+        
     })
 
 };
+
+function validateEmail($email) {
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    return emailReg.test($email);
+}
