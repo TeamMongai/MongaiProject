@@ -24,7 +24,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/HTMLcontroller.js");
+var routes = require("./controllers/HTMLController.js");
 var routes2 = require("./controllers/userLoginController.js"); 
 
 app.use(routes);
