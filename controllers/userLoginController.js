@@ -4,6 +4,8 @@ console.log("userLoginController checking in!")
 
 var express = require("express");
 
+var nodemailer = require('nodemailer');
+
 var router = express.Router();
 
 var db = require("../models")
@@ -59,7 +61,35 @@ router.post('/api/register', function (req, res) {
         })
 
         .then(function (results) {
-            console.log("userLoginController, new user registered: ", results.dataValues.email);
+            console.log("userLoginController, new user registered: ", results.dataValues.email, results.dataValues.password);
+            var message = "<h1>Thank you for registering with The Trolls Toll!</h1> <br> <br> For future reference your password is, "
+            var toEmail = results.dataValues.email;
+            var toPassword = results.dataValues.password;
+            
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: '8lternateusername@gmail.com',
+                    pass: 'a7632fc207'
+                }
+            });
+
+            const mailOptions = {
+                from: '8lternateusername@gmail.com', // sender address
+                to: toEmail, // list of receivers
+                subject: 'Nodemailer', // Subject line
+                html: message + toPassword // plain text body
+            };
+
+            transporter.sendMail(mailOptions, function (err, info) {
+                if (err)
+                    console.log(err)
+                else
+                    console.log(info);
+            });
+
+
+
             res.sendStatus(200)
         });;
 });
