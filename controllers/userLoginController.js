@@ -69,13 +69,13 @@ router.post('/api/register', function (req, res) {
             var transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: '8lternateusername@gmail.com',
-                    pass: 'a7632fc207'
+                    user: 'thetrollstoll@gmail.com',
+                    pass: 'lSXpC0hWcBxWwdKpfNwv'
                 }
             });
 
             const mailOptions = {
-                from: '8lternateusername@gmail.com', // sender address
+                from: 'thetrollstoll@gmail.com', // sender address
                 to: toEmail, // list of receivers
                 subject: 'Nodemailer', // Subject line
                 html: message + toPassword // plain text body
