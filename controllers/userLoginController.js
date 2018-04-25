@@ -10,6 +10,7 @@ var router = express.Router();
 
 var db = require("../models")
 
+
 // Routes and controller functions:
 console.log("exports in userLoginController!")
 // LOGIN - CONVERTED TO SEQUALIZE - Need to test
@@ -24,6 +25,7 @@ router.post("/api/login", function (req, res) {
             email: req.body.email
         },
     }).then(function (results) {
+
         console.log("results is: ", results.password)
         console.log("userLoginController: Password from DB ", results.password);
 
@@ -36,7 +38,12 @@ router.post("/api/login", function (req, res) {
                 "next": "/" + results.id + "/runGame/" + results.userChapterLocation
                 // "/:userID/runGame/:id"
             });
-        } else {
+        }
+        else if (results.password != password) {
+            console.log("poopy")
+            $("myModal").modal();
+        } 
+        else {
             console.log("login failed");
             res.send({
                 "code": 204,
@@ -93,5 +100,7 @@ router.post('/api/register', function (req, res) {
             res.sendStatus(200)
         });;
 });
+
+
 
 module.exports = router;
