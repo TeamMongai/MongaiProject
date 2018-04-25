@@ -15,6 +15,7 @@
     "inquirer": "^5.2.0",
     "mysql": "^2.10.2",
     "mysql2": "^1.5.3",
+    "nodemailer": "^4.6.4",
     "sequelize": "^4.37.6"
   },
   "devDependencies": {
