@@ -4,7 +4,7 @@ var router = express.Router();
 
 var db = require("../models")
 
-var game = require("../controllers/brittanysGame.js")
+var game = require("../controllers/gameController.js")
 
 // RENDER START SCREEN
 router.get("/:userID/runGame/:id", function (req, res) {
