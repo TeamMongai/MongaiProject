@@ -1,4 +1,4 @@
-#The Troll's Toll.
+# The Troll's Toll
 
 The Trolls Toll is a web based choose your own adventure game.
 
