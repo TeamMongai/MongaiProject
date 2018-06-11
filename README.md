@@ -32,3 +32,8 @@ https://evening-plains-48878.herokuapp.com/
 
 # Screenshots
 
+![Start Screen](https://raw.githubusercontent.com/TeamMongai/MongaiProject/master/public/screenShots/001start.PNG)
+
+![Login](https://raw.githubusercontent.com/TeamMongai/MongaiProject/master/public/screenShots/002login.PNG)
+
+![Play Screen](https://raw.githubusercontent.com/TeamMongai/MongaiProject/master/public/screenShots/003play.PNG)
